@@ -1,9 +1,12 @@
 import React from "react";
+import { useContext } from "react";
+import { AuthContext } from "../Authentication/AuthProvider";
 import "../index.css";
 import logo from "../assets/logo/logo.jpg";
 import { Link } from "react-router";
 
 const Nav = () => {
+  const { user, logOut } = useContext(AuthContext);
   const logOutMenu = (
     <>
       <li>
@@ -59,23 +62,7 @@ const Nav = () => {
               tabIndex={0}
               class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {user ? loginMenu : logOutMenu}
             </ul>
           </div>
           <Link to="/" className=" ">
@@ -83,12 +70,33 @@ const Nav = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{loginMenu}</ul>
+          <ul className="menu menu-horizontal px-1">
+            {user ? loginMenu : logOutMenu}
+          </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn" to="/login">
-            Login
-          </Link>
+          {user ? (
+            <div className="flex gap-2 justify-center items-center">
+              <img
+                src={user?.photoURL}
+                alt="user"
+                className="w-10 h-10 rounded-full"
+              />
+              <Link
+                onClick={logOut}
+                className="btn bg-california-500 hover:bg-california-800"
+              >
+                LogOut
+              </Link>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              className="btn bg-california-500 hover:bg-california-800"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

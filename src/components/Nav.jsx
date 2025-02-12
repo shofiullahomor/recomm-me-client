@@ -23,13 +23,13 @@ const Nav = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/">Queries</Link>
+        <Link to="/queries">Queries</Link>
       </li>
       <li>
-        <Link to="/">Recommendations For Me</Link>
+        <Link to="/recomForMe">Recommendations For Me</Link>
       </li>
       <li>
-        <Link to="/">My Queries</Link>
+        <Link to="/my-queries">My Queries</Link>
       </li>
       <li>
         <Link to="/">My recommendations</Link>

@@ -32,7 +32,7 @@ const Nav = () => {
         <Link to="/my-queries">My Queries</Link>
       </li>
       <li>
-        <Link to="/">My recommendations</Link>
+        <Link to="/myRecommendations">My recommendations</Link>
       </li>
     </>
   );

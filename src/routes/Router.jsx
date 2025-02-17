@@ -8,6 +8,7 @@ import ReccomForMe from "../pages/ReccomForMe";
 import MyQueries from "../pages/MyQueries";
 import AddQuery from "../pages/AddQuery";
 import MyRecommendations from "../pages/MyRecommendations";
+import Query from "../pages/Query";
 function Router() {
   return (
     <>
@@ -17,6 +18,7 @@ function Router() {
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
           <Route path="/queries" element={<Queries></Queries>}></Route>
+          <Route path="/queries/:id" element={<Query></Query>}></Route>
           <Route
             path="/recomForMe"
             element={<ReccomForMe></ReccomForMe>}

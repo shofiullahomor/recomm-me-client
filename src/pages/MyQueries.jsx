@@ -4,6 +4,7 @@ import logo from "../assets/logo/logo.jpg";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../Authentication/AuthProvider";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const MyQueries = () => {
   const { user } = useContext(AuthContext);
@@ -19,6 +20,18 @@ const MyQueries = () => {
   };
   console.log(queries);
   const { productImage, queryTitle, productName, date, _id } = queries;
+  const handleDelete = async (id) => {
+    try {
+      const { data } = await axios.delete(`http://localhost:5000/query/${id}`);
+      console.log(data);
+      toast.success("Data deleted successfully");
+      fetchAllQuery();
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
+  };
+
   return (
     <div>
       <div>
@@ -69,7 +82,12 @@ const MyQueries = () => {
                 <div className="flex">
                   <button className="btn">View</button>
                   <button className="btn">Update</button>
-                  <button className="btn">Delete</button>
+                  <button
+                    onClick={() => handleDelete(query._id)}
+                    className="btn"
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             ))}

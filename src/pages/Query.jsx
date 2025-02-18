@@ -9,13 +9,14 @@ import { toast } from "react-hot-toast";
 const Query = () => {
   const { user } = useContext(AuthContext);
   const { id } = useParams();
-  const [queryData, setQueryData] = useState([]);
+  const [queryData, setQueryData] = useState({});
   const [recommendations, setRecommendations] = useState([]);
   let {
     _id,
+    buyer,
     productImage,
     email,
-    displayName,
+
     queryTitle,
     productBrand,
     productName,
@@ -28,6 +29,32 @@ const Query = () => {
       .then((res) => setQueryData(res.data))
       .catch((err) => console.log(err));
   }, []);
+  // ------//
+  const addAdditionalData = (recommendation) => {
+    recommendation.queryId = id;
+    recommendation.queryTitle = queryTitle;
+    recommendation.productName = productName;
+    recommendation.userEmail = email;
+    recommendation.userName = buyer?.name;
+    recommendation.recommenderEmail = user?.email;
+    recommendation.recommenderName = user?.displayName;
+    recommendation.date = new Date().toLocaleString();
+  };
+
+  const handleRecommendation = (e) => {
+    e.preventDefault();
+    let form = new FormData(e.target);
+    let recommendation = Object.fromEntries(form.entries());
+    addAdditionalData(recommendation);
+
+    axios
+      .post("http://localhost:5000/recommend", recommendation)
+      .then((res) => {
+        toast.success("Recommendation added");
+        setRecommendations([...recommendations, recommendation]);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <section>
@@ -42,8 +69,8 @@ const Query = () => {
               <p className="mt-4 text-gray-700">Name: {productName}</p>
               <p className="mt-4 text-gray-700">Brand: {productBrand}</p>
               <p className="mt-4 text-gray-700">Reason for Boycott: {reason}</p>
-              <p className="mt-4 text-gray-700">User name: {displayName}</p>
-              <p className="mt-4 text-gray-700">Email: {email}</p>
+              <p className="mt-4 text-gray-700">User name: {buyer?.name}</p>
+              <p className="mt-4 text-gray-700">Email: {buyer?.email}</p>
             </div>
           </div>
 
@@ -58,10 +85,20 @@ const Query = () => {
             <h2 className="text-2xl font-semibold text-gray-900 sm:text-3xl pb-5">
               Recommend Product
             </h2>
-            <form action="" className="flex flex-col gap-4">
+            <form
+              onSubmit={handleRecommendation}
+              action=""
+              className="flex flex-col gap-4"
+            >
               <input
                 type="text"
                 name="title"
+                placeholder="Recommendation Title"
+                className="input input-bordered input-accent w-full"
+              />
+              <input
+                type="text"
+                name="productName"
                 placeholder="Recommendation Title"
                 className="input input-bordered input-accent w-full"
               />
@@ -79,7 +116,7 @@ const Query = () => {
               <input
                 type="submit"
                 value="Add recommendation"
-                className="bg-california-600 w-full py-2"
+                className="bg-blue-600 btn w-full py-2"
               />
             </form>
           </div>

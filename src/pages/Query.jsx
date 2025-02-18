@@ -29,12 +29,20 @@ const Query = () => {
       .then((res) => setQueryData(res.data))
       .catch((err) => console.log(err));
   }, []);
+  //get recommendations for this product
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/recommendations/${id}`)
+      .then((res) => setRecommendations(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
   // ------//
   const addAdditionalData = (recommendation) => {
     recommendation.queryId = id;
     recommendation.queryTitle = queryTitle;
     recommendation.productName = productName;
-    recommendation.userEmail = email;
+    recommendation.userEmail = buyer?.email;
     recommendation.userName = buyer?.name;
     recommendation.recommenderEmail = user?.email;
     recommendation.recommenderName = user?.displayName;
@@ -125,12 +133,12 @@ const Query = () => {
               All Recommendations
             </h2>
             <div>
-              {/* {recommendations.map((recommendation) => (
+              {recommendations.map((recommendation) => (
                 <RecommendationCard
                   recommendation={recommendation}
                   key={recommendation._id}
                 />
-              ))} */}
+              ))}
             </div>
           </div>
         </div>

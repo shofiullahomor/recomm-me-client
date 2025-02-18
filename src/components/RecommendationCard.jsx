@@ -1,14 +1,20 @@
 import React from "react";
 
-const RecommendationCard = () => {
+const RecommendationCard = ({ recommendation }) => {
+  console.log(recommendation);
   return (
     <article className="rounded-xl border-2 border-gray-100 bg-white mb-5">
       <div className="flex items-start gap-4 p-4 sm:p-6 lg:p-4">
-        <img src={productImage} className="size-24 rounded-lg object-cover" />
+        <img
+          src={recommendation.productImage}
+          className="size-24 rounded-lg object-cover"
+        />
         <div>
-          <h3 className="font-medium sm:text-lg">{title}</h3>
+          <h3 className="font-medium sm:text-lg">{recommendation.title}</h3>
 
-          <p className="line-clamp-2 text-sm text-gray-700">{reason}</p>
+          <p className="line-clamp-2 text-sm text-gray-700">
+            {recommendation.reason}
+          </p>
 
           <div className="mt-2 sm:flex sm:items-center sm:gap-2">
             <div className="flex items-center gap-1 text-gray-500">
@@ -27,7 +33,7 @@ const RecommendationCard = () => {
                 />
               </svg>
 
-              <p className="text-xs">{date}</p>
+              <p className="text-xs">{recommendation.date}</p>
             </div>
 
             <span className="hidden sm:block" aria-hidden="true">
@@ -35,7 +41,7 @@ const RecommendationCard = () => {
             </span>
 
             <p className="hidden sm:block sm:text-xs sm:text-gray-500">
-              Recommended by: {recommenderName}
+              Recommended by: {recommendation.recommenderName}
             </p>
           </div>
         </div>

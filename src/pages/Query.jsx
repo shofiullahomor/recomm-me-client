@@ -12,6 +12,7 @@ const Query = () => {
   const [queryData, setQueryData] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
   let {
+    _id,
     productImage,
     email,
     displayName,
@@ -20,10 +21,11 @@ const Query = () => {
     productName,
     reason,
   } = queryData;
+  console.log(queryData);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/queries/${id}`)
-      .then((res) => console.log(res))
+      .get(`http://localhost:5000/query/${id}`)
+      .then((res) => setQueryData(res.data))
       .catch((err) => console.log(err));
   }, []);
 
@@ -86,12 +88,12 @@ const Query = () => {
               All Recommendations
             </h2>
             <div>
-              {recommendations.map((recommendation) => (
+              {/* {recommendations.map((recommendation) => (
                 <RecommendationCard
                   recommendation={recommendation}
                   key={recommendation._id}
                 />
-              ))}
+              ))} */}
             </div>
           </div>
         </div>

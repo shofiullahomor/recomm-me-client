@@ -63,14 +63,12 @@ const MyQueries = () => {
   return (
     <div>
       <div>
-        <section className="bg-black text-white">
+        <section className="bg-blue-100 text-white">
           <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
             <div className="mx-auto max-w-3xl text-center">
-              <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
-                Add your queries &
-                <span className="sm:block">
-                  get amazing recommendations from our community
-                </span>
+              <h1 className="bg-gradient-to-r from-green-500 via-blue-500 to-blue-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+                Add queries &
+                <span className="sm:block">get recommendations</span>
               </h1>
 
               <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -83,7 +81,7 @@ const MyQueries = () => {
 
                 <a
                   href="#my-queries"
-                  className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
+                  className="block w-full rounded border border-blue-600 px-12 py-3 text-sm bg-blue-400 font-medium text-white hover:bg-blue-600 text-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
                 >
                   see your queries
                 </a>
@@ -107,8 +105,10 @@ const MyQueries = () => {
                   <p>Name: {query?.productName}</p>
                   <p>{query?.date}</p>
                 </div>
-                <div className="flex">
-                  <button className="btn">View</button>
+                <div className="flex justify-items-center">
+                  <Link to={`/query/${query._id}`}>
+                    <button className="btn">View</button>
+                  </Link>
                   <Link to={`/update/${query._id}`}>
                     <button className="btn">Update</button>
                   </Link>

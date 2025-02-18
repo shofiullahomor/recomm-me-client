@@ -9,6 +9,7 @@ import MyQueries from "../pages/MyQueries";
 import AddQuery from "../pages/AddQuery";
 import MyRecommendations from "../pages/MyRecommendations";
 import Query from "../pages/Query";
+import Update from "../pages/Update";
 function Router() {
   return (
     <>
@@ -25,6 +26,7 @@ function Router() {
           ></Route>
           <Route path="/my-queries" element={<MyQueries></MyQueries>}></Route>
           <Route path="/add-query" element={<AddQuery></AddQuery>}></Route>
+          <Route path="/update/:id" element={<Update></Update>}></Route>
           <Route
             path="/myRecommendations"
             element={<MyRecommendations></MyRecommendations>}

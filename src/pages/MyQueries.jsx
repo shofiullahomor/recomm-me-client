@@ -31,6 +31,34 @@ const MyQueries = () => {
       toast.error(err.message);
     }
   };
+  const modernDelete = (id) => {
+    toast((t) => (
+      <div className="flex gap-3 items-center">
+        <div>
+          <p>
+            Are you <b>Sure</b>
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <button
+            className="bg-red-400 text-white px-3 py-1 rounded-md"
+            onClick={() => {
+              toast.dismiss(t.id);
+              handleDelete(id);
+            }}
+          >
+            Yes
+          </button>
+          <button
+            className="bg-green-400 text-white px-3 py-1 rounded-md"
+            onClick={() => toast.dismiss(t.id)}
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    ));
+  };
 
   return (
     <div>
@@ -81,9 +109,11 @@ const MyQueries = () => {
                 </div>
                 <div className="flex">
                   <button className="btn">View</button>
-                  <button className="btn">Update</button>
+                  <Link to={`/update/${query._id}`}>
+                    <button className="btn">Update</button>
+                  </Link>
                   <button
-                    onClick={() => handleDelete(query._id)}
+                    onClick={() => modernDelete(query._id)}
                     className="btn"
                   >
                     Delete

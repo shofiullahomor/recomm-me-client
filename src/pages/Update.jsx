@@ -1,20 +1,26 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../Authentication/AuthProvider";
 import { toast } from "react-hot-toast";
 import axios from "axios";
-import { useNavigate } from "react-router";
-const AddQuery = () => {
+import { useNavigate, useParams } from "react-router";
+
+const Update = () => {
   const { user } = useContext(AuthContext);
+  const { id } = useParams();
   const navigate = useNavigate();
-  // const { email, photoURL, displayName } = user;
-  // const userInfo = (info) => {
-  //   info.email = uemail;
-  //   info.photoURL = photoURL;
-  //   info.displayName = displayName;
-  //   info.date = new Date().toLocaleString();
-  //   console.log("info Data", info);
-  // };
+
+  const [query, setQuery] = useState({});
+
+  useEffect(() => {
+    fetchQuery();
+  }, [id]);
+
+  const fetchQuery = async () => {
+    const { data } = await axios.get(`http://localhost:5000/query/${id}`);
+    setQuery(data);
+  };
+  console.log(query);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,15 +44,19 @@ const AddQuery = () => {
         photo: user?.photoURL,
         email: user?.email,
       },
-      recommendationCount: 0,
+      recommendationCount: query.recommendationCount,
       date: new Date().toLocaleString(),
     };
-    const data = await axios.post("http://localhost:5000/queries", formInfo);
-    toast.success("query successfully added");
-    navigate("/my-queries#my-queries");
-    console.log(data);
-  };
 
+    try {
+      await axios.put(`http://localhost:5000/update-query/${id}`, formInfo);
+      toast.success("query update successfully");
+      navigate("/my-queries#my-queries");
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
+  };
   return (
     <div className="bg-blue-200 py-5">
       <h1 className="text-3xl text-center font-bold ">Add Query</h1>
@@ -58,6 +68,7 @@ const AddQuery = () => {
               <input
                 type="text"
                 name="productName"
+                defaultValue={query.productName}
                 placeholder="Product name"
                 className="input input-md w-full"
               />
@@ -67,6 +78,7 @@ const AddQuery = () => {
               <input
                 type="text"
                 name="productBrand"
+                defaultValue={query.productBrand}
                 placeholder="Product Brand"
                 className="input input-md w-full"
               />
@@ -76,6 +88,7 @@ const AddQuery = () => {
               <input
                 type="text"
                 name="productImage"
+                defaultValue={query.productImage}
                 placeholder="Product Image-URL"
                 className="input input-md w-full"
               />
@@ -85,6 +98,7 @@ const AddQuery = () => {
               <input
                 type="text"
                 name="queryTitle"
+                defaultValue={query.queryTitle}
                 placeholder="Query TItle"
                 className="input input-md w-full"
               />
@@ -94,6 +108,7 @@ const AddQuery = () => {
               <input
                 type="text"
                 name="reason"
+                defaultValue={query.reason}
                 placeholder="Boycotting Reason Details"
                 className="input input-md w-full"
               />
@@ -110,4 +125,4 @@ const AddQuery = () => {
   );
 };
 
-export default AddQuery;
+export default Update;

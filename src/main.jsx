@@ -14,6 +14,7 @@ createRoot(document.getElementById("root")).render(
       <BrowserRouter>
         <Router></Router>
       </BrowserRouter>
+      <Toaster position="top-right" reverseOrder={false} />
     </AuthProvider>
   </StrictMode>
 );

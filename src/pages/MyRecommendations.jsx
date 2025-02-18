@@ -20,6 +20,32 @@ const MyRecommendations = () => {
       </h2>
     );
   }
+
+  const handleDelete = (id) => {
+    let remainingData = recommendations.filter(
+      (recommendation) => recommendation._id != id
+    );
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will not be able to recover this query!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, keep it",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:5000/recommendations/${id}`)
+          .then((res) => {
+            console.log(res.data);
+            setRecommendations(remainingData);
+          })
+          .catch((err) => console.log(err));
+        Swal.fire("Deleted!");
+      }
+    });
+  };
   console.log(recommendations);
   return (
     <div className="my-10">
@@ -78,22 +104,18 @@ const MyRecommendations = () => {
                   </td>
                   <td>{recommendation.reason}</td>
                   <th>
-                    <button className="btn btn-info btn-md">Delete</button>
+                    <button
+                      onClick={() => handleDelete(recommendation._id)}
+                      className="btn btn-info btn-md"
+                    >
+                      Delete
+                    </button>
                   </th>
                 </tr>
               );
             })}
           </tbody>
           {/* foot */}
-          <tfoot>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
-            </tr>
-          </tfoot>
         </table>
       </div>
     </div>

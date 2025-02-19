@@ -13,6 +13,16 @@ const Queries = () => {
       .then((res) => setQueries(res.data))
       .catch((err) => console.log(err));
   }, []);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    let query = e.target.search.value;
+    console.log(query);
+    axios
+      .get(`http://localhost:5000/search?q=${query}`)
+      .then((res) => setQueries(res.data))
+      .catch((err) => console.log(err));
+  };
+
   if (queries.length === 0) {
     return (
       <h2 className="font-bold text-red-600 text-center py-5">
@@ -22,19 +32,19 @@ const Queries = () => {
   }
   return (
     <div className="lg:max-w-6xl mx-5 lg:mx-auto mb-20">
-      <div className="flex flex-col md:flex-row justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between items-center text-blue-600 rounded-2xl">
         <h2 className="text-center font-bold text-3xl my-10">Queries</h2>
-        <div className="pb-2">
-          <form>
+        <div className="pb-2 ">
+          <form onSubmit={handleSearch}>
             <input
               type="text"
               name="search"
-              className="border border-gray-300 rounded-lg py-2 "
+              className="border border-blue-400 rounded-lg py-2 "
             />
             <input
               type="submit"
               value="Search"
-              className="bg-california-500 py-2 px-5 rounded-lg ml-2"
+              className="bg-blue-500 text-white font-bold btn py-2 px-5 rounded-lg ml-2"
             />
           </form>
         </div>

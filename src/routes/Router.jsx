@@ -10,6 +10,7 @@ import AddQuery from "../pages/AddQuery";
 import MyRecommendations from "../pages/MyRecommendations";
 import Query from "../pages/Query";
 import Update from "../pages/Update";
+import Errorpage from "../pages/Errorpage";
 function Router() {
   return (
     <>
@@ -31,6 +32,7 @@ function Router() {
             path="/myRecommendations"
             element={<MyRecommendations></MyRecommendations>}
           ></Route>
+          <Route path="*" element={<Errorpage />} />
         </Route>
       </Routes>
     </>

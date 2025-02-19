@@ -17,7 +17,7 @@ const SingleQuer = ({ query }) => {
   let dateFormatted = new Date(date).toLocaleString("en-GB", dateOptions);
   return (
     <Link to={`/query/${_id}`}>
-      <div className="card bg-california-300 ">
+      <div className=" flex flex-col bg-blue-300 gap-2">
         <figure className="px-10 pt-10">
           <img src={productImage} alt={queryTitle} className="rounded-xl" />
         </figure>

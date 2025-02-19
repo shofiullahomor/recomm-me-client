@@ -38,7 +38,7 @@ const Query = () => {
   }, []);
 
   // ------//
-  const addAdditionalData = (recommendation) => {
+  const addExtraData = (recommendation) => {
     recommendation.queryId = id;
     recommendation.queryTitle = queryTitle;
     recommendation.productName = productName;
@@ -53,7 +53,7 @@ const Query = () => {
     e.preventDefault();
     let form = new FormData(e.target);
     let recommendation = Object.fromEntries(form.entries());
-    addAdditionalData(recommendation);
+    addExtraData(recommendation);
 
     axios
       .post("http://localhost:5000/recommend", recommendation)

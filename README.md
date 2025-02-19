@@ -1,4 +1,4 @@
-#Live site : https://recomm-me.web.app
+#Live site : https://recomm-me.firebaseapp.com/
 
 <h1>key features: </h1>
 1- query

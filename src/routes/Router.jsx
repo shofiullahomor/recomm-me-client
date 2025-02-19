@@ -11,6 +11,7 @@ import MyRecommendations from "../pages/MyRecommendations";
 import Query from "../pages/Query";
 import Update from "../pages/Update";
 import Errorpage from "../pages/Errorpage";
+import PrivateRoute from "./PrivateRoute";
 function Router() {
   return (
     <>
@@ -21,17 +22,20 @@ function Router() {
           <Route path="/register" element={<Register></Register>}></Route>
           <Route path="/queries" element={<Queries></Queries>}></Route>
           <Route path="/query/:id" element={<Query></Query>}></Route>
-          <Route
-            path="/recomForMe"
-            element={<ReccomForMe></ReccomForMe>}
-          ></Route>
-          <Route path="/my-queries" element={<MyQueries></MyQueries>}></Route>
-          <Route path="/add-query" element={<AddQuery></AddQuery>}></Route>
-          <Route path="/update/:id" element={<Update></Update>}></Route>
-          <Route
-            path="/myRecommendations"
-            element={<MyRecommendations></MyRecommendations>}
-          ></Route>
+          <Route element={<PrivateRoute />}>
+            <Route
+              path="/recomForMe"
+              element={<ReccomForMe></ReccomForMe>}
+            ></Route>
+            <Route path="/my-queries" element={<MyQueries></MyQueries>}></Route>
+
+            <Route path="/add-query" element={<AddQuery></AddQuery>}></Route>
+            <Route path="/update/:id" element={<Update></Update>}></Route>
+            <Route
+              path="/myRecommendations"
+              element={<MyRecommendations></MyRecommendations>}
+            ></Route>
+          </Route>
           <Route path="*" element={<Errorpage />} />
         </Route>
       </Routes>

@@ -3,36 +3,36 @@ import { useContext } from "react";
 import { AuthContext } from "../Authentication/AuthProvider";
 import "../index.css";
 import logo from "../assets/logo/logo.jpg";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
   const logOutMenu = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/">Queries</Link>
+        <Link to="/queries">Queries</Link>
       </li>
     </>
   );
   const loginMenu = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/queries">Queries</Link>
+        <NavLink to="/queries">Queries</NavLink>
       </li>
       <li>
-        <Link to="/recomForMe">Recommendations For Me</Link>
+        <NavLink to="/recomForMe">Recommendations For Me</NavLink>
       </li>
       <li>
-        <Link to="/my-queries">My Queries</Link>
+        <NavLink to="/my-queries">My Queries</NavLink>
       </li>
       <li>
-        <Link to="/myRecommendations">My recommendations</Link>
+        <NavLink to="/myRecommendations">My recommendations</NavLink>
       </li>
     </>
   );

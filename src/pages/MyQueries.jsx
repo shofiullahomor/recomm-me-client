@@ -14,7 +14,7 @@ const MyQueries = () => {
   }, [user]);
   const fetchAllQuery = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/queries/${user?.email}`
+      `https://recomm-me-server.vercel.app/queries/${user?.email}`
     );
     setQueries(data);
   };
@@ -22,7 +22,9 @@ const MyQueries = () => {
   const { productImage, queryTitle, productName, date, _id } = queries;
   const handleDelete = async (id) => {
     try {
-      const { data } = await axios.delete(`http://localhost:5000/query/${id}`);
+      const { data } = await axios.delete(
+        `https://recomm-me-server.vercel.app/query/${id}`
+      );
       console.log(data);
       toast.success("Data deleted successfully");
       fetchAllQuery();
@@ -92,32 +94,33 @@ const MyQueries = () => {
         <section id="my-queries">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {queries.map((query) => (
-              <div key={query._id} className="card bg-california-300 ">
-                <figure className="px-10 pt-10">
+              <div key={query._id} className="card my-5 bg-blue-300 ">
+                <figure className="px-6 pt-6">
                   <img
                     src={query?.productImage}
                     alt=""
-                    className="rounded-xl"
+                    className="rounded-xl w-40 h-40"
                   />
                 </figure>
                 <div className="card-body items-center text-center">
                   <h2 className="card-title">{query?.queryTitle}</h2>
                   <p>Name: {query?.productName}</p>
                   <p>{query?.date}</p>
-                </div>
-                <div className="flex justify-items-center">
-                  <Link to={`/query/${query._id}`}>
-                    <button className="btn">View</button>
-                  </Link>
-                  <Link to={`/update/${query._id}`}>
-                    <button className="btn">Update</button>
-                  </Link>
-                  <button
-                    onClick={() => modernDelete(query._id)}
-                    className="btn"
-                  >
-                    Delete
-                  </button>
+
+                  <div className="flex justify-items-center gap-2">
+                    <Link to={`/query/${query._id}`}>
+                      <button className="btn">View</button>
+                    </Link>
+                    <Link to={`/update/${query._id}`}>
+                      <button className="btn">Update</button>
+                    </Link>
+                    <button
+                      onClick={() => modernDelete(query._id)}
+                      className="btn"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}

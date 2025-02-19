@@ -28,22 +28,13 @@ const Slider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <Slide
-            image={img1}
-            text="Get Your Web Development Projects Done in minutes"
-          />
+          <Slide image={img1} text="" />
         </SwiperSlide>
         <SwiperSlide>
-          <Slide
-            image={img2}
-            text="Get Your Graphics Design Projects Done in minutes"
-          />
+          <Slide image={img2} text="" />
         </SwiperSlide>
         <SwiperSlide>
-          <Slide
-            image={img3}
-            text="Start Your Digital Marketing Campaigns up n running"
-          />
+          <Slide image={img3} text="" />
         </SwiperSlide>
       </Swiper>
     </div>

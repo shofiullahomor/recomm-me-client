@@ -7,7 +7,9 @@ const ReccomForMe = () => {
   const [recommendations, setRecommendations] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/recommendedForMe/${user?.email}`)
+      .get(
+        `https://recomm-me-server.vercel.app/recommendedForMe/${user?.email}`
+      )
       .then((res) => setRecommendations(res.data || []))
       .catch((err) => console.log(err));
   }, [user]);
@@ -21,7 +23,9 @@ const ReccomForMe = () => {
   }
   return (
     <div>
-      <h1 className="text-center text-4xl font-bold">Recommondations For Me</h1>
+      <h1 className="text-center  lg:text-4xl font-bold">
+        Recommondations For Me
+      </h1>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

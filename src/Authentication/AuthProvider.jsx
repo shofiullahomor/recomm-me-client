@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { app } from "./firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -51,6 +52,31 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log("CurrentUser-->", currentUser);
+      if (currentUser?.email) {
+        const user = { email: createUser.email };
+
+        axios
+          .post("https://recomm-me-server.vercel.app/jwt", user, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("login token", res.data);
+            setLoading(false);
+          });
+      } else {
+        axios
+          .post(
+            "https://recomm-me-server.vercel.app/logout",
+            {},
+            {
+              withCredentials: true,
+            }
+          )
+          .then((res) => {
+            console.log("logout", res.data);
+            setLoading(false);
+          });
+      }
       setLoading(false);
     });
     return () => {

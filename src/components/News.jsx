@@ -7,10 +7,12 @@ const News = () => {
   return (
     <div>
       <div className="mx-auto max-w-3xl text-center mt-10 ">
-        <h2 className="text-3xl font-bold  sm:text-4xl">Our Latest News</h2>
+        <h2 className="text-3xl font-bold text-blue-500 sm:text-4xl">
+          Our Latest News
+        </h2>
       </div>
 
-      <div className="grid grid-cols-1  md:grid-cols-3 gap-10 py-10 mx-5 lg:mx-10 pb-10 ">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-10 py-10 mx-5 lg:mx-10 pb-10 ">
         <article className="overflow-hidden rounded-lg border border-gray-100  shadow-sm">
           <img alt="" src={blog3} className="h-56 w-full object-cover" />
 

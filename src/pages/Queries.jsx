@@ -9,7 +9,7 @@ const Queries = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/queries")
+      .get("https://recomm-me-server.vercel.app/queries")
       .then((res) => setQueries(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -18,7 +18,7 @@ const Queries = () => {
     let query = e.target.search.value;
     console.log(query);
     axios
-      .get(`http://localhost:5000/search?q=${query}`)
+      .get(`https://recomm-me-server.vercel.app/search?q=${query}`)
       .then((res) => setQueries(res.data))
       .catch((err) => console.log(err));
   };

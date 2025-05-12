@@ -1,21 +1,22 @@
-import React from "react";
-import Nav from "./components/Nav";
 import { Outlet } from "react-router";
 import Footer from "./components/Footer";
+import Nav from "./components/Nav";
 
 const Layout = () => {
   return (
-    <div className="container mx-auto">
-      <div>
+    <>
+      <div className="bg-black">
         <Nav></Nav>
       </div>
       <div>
-        <Outlet></Outlet>
+        <div>
+          <Outlet></Outlet>
+        </div>
       </div>
       <div>
         <Footer></Footer>
       </div>
-    </div>
+    </>
   );
 };
 

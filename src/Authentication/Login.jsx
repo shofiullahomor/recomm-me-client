@@ -54,13 +54,13 @@ const Login = () => {
             <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
           </div>
 
-          <p className="mt-3 text-xl text-center text-blue-500 ">
+          <p className="mt-3 text-xl text-center text-green-500 ">
             Welcome back!
           </p>
 
           <div
             onClick={handleGoogleSignIn}
-            className="flex cursor-pointer items-center justify-center mt-4 text-blue-500 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 "
+            className="flex cursor-pointer items-center justify-center mt-4 text-green-500 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 "
           >
             <div className="px-4 py-2">
               <svg className="w-6 h-6" viewBox="0 0 40 40">
@@ -83,24 +83,24 @@ const Login = () => {
               </svg>
             </div>
 
-            <span className="w-5/6 px-4 py-3 font-bold text-center">
+            <span className="w-5/6 px-4 py-3 font-bold text-center text-green-500">
               Sign in with Google
             </span>
           </div>
 
           <div className="flex items-center justify-between mt-4">
-            <span className="w-1/5 border-b-2 border-blue-900  lg:w-1/4"></span>
+            <span className="w-1/5 border-b-2 border-green-900  lg:w-1/4"></span>
 
-            <div className="text-xs text-center text-blue-500 uppercase  hover:underline">
+            <div className="text-xs text-center text-green-500 uppercase  hover:underline">
               or login with email
             </div>
 
-            <span className="w-1/5 border-b-2 border-blue-900 dark:border-blue-400 lg:w-1/4"></span>
+            <span className="w-1/5 border-b-2 border-green-900 dark:border-green-400 lg:w-1/4"></span>
           </div>
           <form onSubmit={handleSignIn}>
             <div className="mt-4">
               <label
-                className="block mb-2 text-sm font-medium text-blue-500 "
+                className="block mb-2 text-sm font-medium text-green-500 "
                 htmlFor="LoggingEmailAddress"
               >
                 Email Address
@@ -109,7 +109,7 @@ const Login = () => {
                 id="LoggingEmailAddress"
                 autoComplete="email"
                 name="email"
-                className="block w-full px-4 py-2 text-blue-500 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
+                className="block w-full px-4 py-2 text-green-500 bg-white border rounded-lg    focus:border-green-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-green-300"
                 type="email"
               />
             </div>
@@ -117,7 +117,7 @@ const Login = () => {
             <div className="mt-4">
               <div className="flex justify-between">
                 <label
-                  className="block mb-2 text-sm font-medium text-blue-500 "
+                  className="block mb-2 text-sm font-medium text-green-500 "
                   htmlFor="loggingPassword"
                 >
                   Password
@@ -128,14 +128,14 @@ const Login = () => {
                 id="loggingPassword"
                 autoComplete="current-password"
                 name="password"
-                className="block w-full px-4 py-2 text-blue-500 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
+                className="block w-full px-4 py-2 text-green-500 bg-white border rounded-lg    focus:border-green-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-green-300"
                 type="password"
               />
             </div>
             <div className="mt-6">
               <button
                 type="submit"
-                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-700 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-700 rounded-lg hover:bg-green-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
               >
                 Sign In
               </button>
@@ -143,16 +143,16 @@ const Login = () => {
           </form>
 
           <div className="flex items-center justify-between mt-4">
-            <span className="w-1/5 border-b-2 border-blue-900 md:w-1/4"></span>
+            <span className="w-1/5 border-b-2 border-green-900 md:w-1/4"></span>
 
             <Link
               to="/register"
-              className="text-xs text-blue-500 uppercase  hover:underline"
+              className="text-xs text-green-500 uppercase  hover:underline"
             >
               or sign up
             </Link>
 
-            <span className="w-1/5 border-b-2 border-blue-900 md:w-1/4"></span>
+            <span className="w-1/5 border-b-2 border-green-900 md:w-1/4"></span>
           </div>
         </div>
       </div>

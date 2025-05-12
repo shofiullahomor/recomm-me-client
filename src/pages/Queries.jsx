@@ -9,7 +9,7 @@ const Queries = () => {
 
   useEffect(() => {
     axios
-      .get("https://recomm-me-server.vercel.app/queries")
+      .get("http://localhost:5000/queries")
       .then((res) => setQueries(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -18,7 +18,7 @@ const Queries = () => {
     let query = e.target.search.value;
     console.log(query);
     axios
-      .get(`https://recomm-me-server.vercel.app/search?q=${query}`)
+      .get(`http://localhost:5000/search?q=${query}`)
       .then((res) => setQueries(res.data))
       .catch((err) => console.log(err));
   };
@@ -33,7 +33,9 @@ const Queries = () => {
   return (
     <div className="lg:max-w-6xl mx-5 lg:mx-auto mb-20">
       <div className="flex flex-col md:flex-row justify-between items-center text-blue-600 rounded-2xl">
-        <h2 className="text-center font-bold text-3xl my-10">Queries</h2>
+        <h2 className="text-center font-bold text-3xl my-10 text-green-500">
+          Queries
+        </h2>
         <div className="pb-2 ">
           <form onSubmit={handleSearch}>
             <input
@@ -44,12 +46,12 @@ const Queries = () => {
             <input
               type="submit"
               value="Search"
-              className="bg-blue-500 text-white font-bold btn py-2 px-5 rounded-lg ml-2"
+              className="bg-green-500 text-white font-bold btn py-2 px-5 rounded-lg ml-2"
             />
           </form>
         </div>
         <div className="hidden md:flex gap-3 items-center justify-center">
-          <h4 className="font-bold">Change layout</h4>
+          <h4 className="font-bold text-green-500 text-3xl">Change layout</h4>
           <form>
             <select
               value={column}
@@ -71,23 +73,6 @@ const Queries = () => {
         {queries.map((query) => (
           <SingleQuery query={query} key={query._id} />
         ))}
-        {/* card start */}
-        {/* <Link to={`/queries/${_id}`}> */}
-        {/* <div className="card bg-california-300 ">
-          <figure className="px-10 pt-10">
-            <img src={logo} alt="" className="rounded-xl" />
-          </figure>
-          <div className="card-body items-center text-center">
-            <h2 className="card-title">
-              Is there a better product with natural ingredient
-            </h2>
-            <p>Name: EcoFress shampoo</p>
-            <p>Posted on: 07 january 2025</p>
-          </div>
-        </div> */}
-
-        {/* </Link> */}
-        {/* card end */}
       </div>
     </div>
   );

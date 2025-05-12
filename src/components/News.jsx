@@ -7,7 +7,7 @@ const News = () => {
   return (
     <div>
       <div className="mx-auto max-w-3xl text-center mt-10 ">
-        <h2 className="text-3xl font-bold text-blue-500 sm:text-4xl">
+        <h2 className="text-3xl font-bold text-green-500 sm:text-4xl">
           Our Latest News
         </h2>
       </div>

@@ -1,15 +1,14 @@
-import React from "react";
-
 import Footer from "../components/Footer";
-import Slider from "../components/Slider";
+
 import News from "../components/News";
 import RecentQueries from "../components/RecentQueries";
+import Sliderr from "./../components/Sliderr";
 
 const Home = () => {
   return (
     <>
-      <div>
-        <Slider></Slider>
+      <div className="min-h-[100vh-20vh]">
+        <Sliderr></Sliderr>
       </div>
       <div>
         <RecentQueries></RecentQueries>

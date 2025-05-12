@@ -41,10 +41,7 @@ const AddQuery = () => {
       recommendationCount: 0,
       date: new Date().toLocaleString(),
     };
-    const data = await axios.post(
-      "https://recomm-me-server.vercel.app/queries",
-      formInfo
-    );
+    const data = await axios.post("http://localhost:5000/queries", formInfo);
     toast.success("query successfully added");
     navigate("/my-queries#my-queries");
     console.log(data);

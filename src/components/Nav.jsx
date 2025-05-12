@@ -1,8 +1,7 @@
-import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../Authentication/AuthProvider";
 import "../index.css";
-import logo from "../assets/logo/logo.jpg";
+
 import { Link, NavLink } from "react-router";
 
 const Nav = () => {
@@ -10,35 +9,52 @@ const Nav = () => {
   const logOutMenu = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" className="text-white font-bold">
+          Home
+        </NavLink>
       </li>
       <li>
-        <Link to="/queries">Queries</Link>
+        <NavLink to="/queries" className=" text-white font-bold">
+          Queries
+        </NavLink>
       </li>
     </>
   );
   const loginMenu = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" className="text-white focus:text-white">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/queries">Queries</NavLink>
+        <NavLink to="/queries" className="text-white focus:text-white">
+          Queries
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/recomForMe">Recommendations For Me</NavLink>
+        <NavLink to="/recomForMe" className="text-white focus:text-white">
+          Recommendations For Me
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/my-queries">My Queries</NavLink>
+        <NavLink to="/my-queries" className="text-white focus:text-white">
+          My Queries
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/myRecommendations">My recommendations</NavLink>
+        <NavLink
+          className="text-white focus:text-white"
+          to="/myRecommendations"
+        >
+          My recommendations
+        </NavLink>
       </li>
     </>
   );
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar container mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,13 +76,16 @@ const Nav = () => {
             </div>
             <ul
               tabIndex={0}
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               {user ? loginMenu : logOutMenu}
             </ul>
           </div>
           <Link to="/" className=" ">
-            <img className="w-20" src={logo} alt="" />
+            {/* <img className="w-20" src={logo} alt="" /> */}
+            <h1 className="text-green-500 text-4xl font-bold font-serif">
+              Rec Me
+            </h1>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -92,7 +111,7 @@ const Nav = () => {
           ) : (
             <Link
               to="/login"
-              className="btn bg-california-500 hover:bg-california-800"
+              className="btn bg-green-700 text-white hover:bg-california-800"
             >
               Login
             </Link>

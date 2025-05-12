@@ -17,9 +17,7 @@ const Update = () => {
   }, [id]);
 
   const fetchQuery = async () => {
-    const { data } = await axios.get(
-      `https://recomm-me-server.vercel.app/query/${id}`
-    );
+    const { data } = await axios.get(`http://localhost:5000/query/${id}`);
     setQuery(data);
   };
   console.log(query);
@@ -51,10 +49,7 @@ const Update = () => {
     };
 
     try {
-      await axios.put(
-        `https://recomm-me-server.vercel.app/update-query/${id}`,
-        formInfo
-      );
+      await axios.put(`http://localhost:5000/update-query/${id}`, formInfo);
       toast.success("query update successfully");
       navigate("/my-queries#my-queries");
     } catch (err) {

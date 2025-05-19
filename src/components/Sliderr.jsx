@@ -23,7 +23,7 @@ function Sliderr() {
       // onSlideChange={() => console.log("slide change")}
     >
       <SwiperSlide>
-        <div className="hero bg-[url('https://i.ibb.co.com/sJDMSDz2/abstrack-Background.jpg')] bg-cover bg-center bg-no-repeat text-white min-h-screen">
+        <div className="hero bg-[url('https://i.ibb.co.com/GQCZmtY2/6706368-3408105.jpg')] bg-cover bg-center bg-no-repeat text-white min-h-screen">
           <div className="hero-content text-white text-center">
             <div className="max-w-full px-10 lg:max-w-3xl">
               <h1 className="text-2xl md:text-5xl font-bold">
@@ -36,7 +36,7 @@ function Sliderr() {
                 your decisions. Explore, inquire, and recommend with ease.
               </p>
               <Link
-                className="btn bg-black text-white hover:bg-california-800  border-none "
+                className="btn bg-blue-900 text-white hover:bg-california-800  border-none "
                 to="/queries"
               >
                 Get Started
@@ -46,7 +46,7 @@ function Sliderr() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="hero bg-[url('https://i.ibb.co.com/Sb5zVFC/abs-Bghexa.jpg')] bg-cover bg-center bg-no-repeat min-h-screen">
+        <div className="hero bg-[url('https://i.ibb.co.com/dsXmqvfV/12893196-5084287.jpg')] bg-cover bg-center bg-no-repeat min-h-screen">
           <div className="hero-content text-white text-center">
             <div className="max-w-full px-10 lg:max-w-3xl">
               <h2 className="text-2xl md:text-5xl font-bold">
@@ -58,7 +58,7 @@ function Sliderr() {
                 network. Collaborate and exchange knowledge effortlessly.
               </p>
               <Link
-                className="btn bg-white hover:bg-california-800 text-green-500 border-none "
+                className="btn bg-blue-900 text-white hover:bg-california-800 border-none "
                 to="/queries"
               >
                 Get Started
@@ -68,7 +68,7 @@ function Sliderr() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="hero bg-[url('https://i.ibb.co.com/4Z7F6hbD/absbg.jpg')] bg-cover bg-center bg-no-repeat  min-h-screen">
+        <div className="hero bg-[url('https://i.ibb.co.com/LznbjGfW/44420737-9019796.jpg')] bg-cover bg-center bg-no-repeat  min-h-screen">
           <div className="w-full hero-content text-white text-center">
             <div className="max-w-full px-10 lg:max-w-3xl">
               <h2 className="text-2xl md:text-5xl font-bold">
@@ -80,7 +80,7 @@ function Sliderr() {
                 valuable for all users. Your voice makes a difference.
               </p>
               <Link
-                className="btn bg-black hover:bg-california-800 text-white border-none "
+                className="btn bg-blue-900 text-white hover:bg-california-800  border-none "
                 to="/queries"
               >
                 Get Started

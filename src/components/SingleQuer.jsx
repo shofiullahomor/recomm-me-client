@@ -16,24 +16,22 @@ const SingleQuer = ({ query }) => {
 
   let dateFormatted = new Date(date).toLocaleString("en-GB", dateOptions);
   return (
-    <div className="">
-      <Link to={`/query/${_id}`}>
-        <div className=" flex flex-col bg-green-500 gap-2">
-          <figure className="px-10 pt-10">
-            <img
-              src={productImage}
-              alt={queryTitle}
-              className="rounded-xl w-60 h-60"
-            />
-          </figure>
-          <div className="card-body items-center text-center">
-            <h2 className="card-title">{queryTitle}</h2>
-            <p>Name: {productName}</p>
-            <p>Posted on: {dateFormatted}</p>
-          </div>
+    <Link to={`/query/${_id}`}>
+      <div className=" card  text-white flex flex-col h-full">
+        <figure className="px-10 pt-10">
+          <img
+            src={productImage}
+            alt={queryTitle}
+            className="rounded-xl w-40 h-40"
+          />
+        </figure>
+        <div className="card-body items-center text-center">
+          <h2 className="card-title">{queryTitle}</h2>
+          <p className="text-xl">Name: {productName}</p>
+          <p className="text-xl">Posted on: {dateFormatted}</p>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 

@@ -14,7 +14,7 @@ const MyQueries = () => {
   }, [user]);
   const fetchAllQuery = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/queries/${user?.email}`
+      `https://recomm-me-server.vercel.app/queries/${user?.email}`
     );
     setQueries(data);
   };
@@ -22,7 +22,9 @@ const MyQueries = () => {
   const { productImage, queryTitle, productName, date, _id } = queries;
   const handleDelete = async (id) => {
     try {
-      const { data } = await axios.delete(`http://localhost:5000/query/${id}`);
+      const { data } = await axios.delete(
+        `https://recomm-me-server.vercel.app/query/${id}`
+      );
       console.log(data);
       toast.success("Data deleted successfully");
       fetchAllQuery();

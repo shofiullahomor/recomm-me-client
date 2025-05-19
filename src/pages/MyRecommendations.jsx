@@ -9,7 +9,9 @@ const MyRecommendations = () => {
   const [recommendations, setRecommendations] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/recommended-by-me/${user?.email}`)
+      .get(
+        `https://recomm-me-server.vercel.app/recommended-by-me/${user?.email}`
+      )
       .then((res) => setRecommendations(res.data || []))
       .catch((err) => console.log(err));
   }, [user]);
@@ -36,7 +38,7 @@ const MyRecommendations = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/recommendations/${id}`)
+          .delete(`https://recomm-me-server.vercel.app/recommendations/${id}`)
           .then((res) => {
             console.log(res.data);
             setRecommendations(remainingData);

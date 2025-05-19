@@ -83,9 +83,7 @@ const Nav = () => {
           </div>
           <Link to="/" className=" ">
             {/* <img className="w-20" src={logo} alt="" /> */}
-            <h1 className="text-green-500 text-4xl font-bold font-serif">
-              Rec Me
-            </h1>
+            <h1 className="text-white text-4xl font-bold font-serif">Rec Me</h1>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -103,7 +101,7 @@ const Nav = () => {
               />
               <Link
                 onClick={logOut}
-                className="btn bg-california-500 hover:bg-california-800"
+                className="btn bg-blue-900 text-white hover:bg-california-800"
               >
                 LogOut
               </Link>
@@ -111,7 +109,7 @@ const Nav = () => {
           ) : (
             <Link
               to="/login"
-              className="btn bg-green-700 text-white hover:bg-california-800"
+              className="btn bg-blue-900 text-white hover:bg-california-800"
             >
               Login
             </Link>

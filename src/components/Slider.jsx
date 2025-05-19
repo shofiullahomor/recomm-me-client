@@ -1,43 +1,97 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import Slide from "./Slide";
-import img1 from "../assets/sliderimg/img1.png";
-import img2 from "../assets/sliderimg/img2.png";
-import img3 from "../assets/sliderimg/img3.png";
+// import Swiper core and required modules
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
-const Slider = () => {
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import { Link } from "react-router-dom";
+
+function Slider() {
   return (
-    <div className="container px-6 py-10 mx-auto">
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <Slide image={img1} text="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide image={img2} text="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide image={img3} text="" />
-        </SwiperSlide>
-      </Swiper>
-    </div>
+    <Swiper
+      // install Swiper modules
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={50}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      // onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log("slide change")}
+    >
+      <SwiperSlide>
+        <div className="hero bg-[url('https://i.ibb.co.com/GQCZmtY2/6706368-3408105.jpg')] bg-cover bg-center bg-no-repeat text-white min-h-screen">
+          <div className="hero-content text-white text-center">
+            <div className="max-w-full px-10 lg:max-w-3xl">
+              <h1 className="text-2xl md:text-5xl font-bold">
+                Welcome to Your Personalized Product Guide
+              </h1>
+              <p className="py-6">
+                Discover the ultimate platform for tailored product
+                recommendations! Whether you're seeking alternatives or sharing
+                your expertise, our community-driven system is here to simplify
+                your decisions. Explore, inquire, and recommend with ease.
+              </p>
+              <Link
+                className="btn bg-california-600 hover:bg-california-800 text-white border-none "
+                to="/queries"
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="hero bg-[url('https://i.ibb.co.com/dsXmqvfV/12893196-5084287.jpg')] bg-cover bg-center bg-no-repeat min-h-screen">
+          <div className="hero-content text-white text-center">
+            <div className="max-w-full px-10 lg:max-w-3xl">
+              <h2 className="text-2xl md:text-5xl font-bold">
+                Engage with a Vibrant Community
+              </h2>
+              <p className="py-6">
+                Got questions about a product? Post your queries, browse others'
+                insights, and uncover detailed recommendations from a supportive
+                network. Collaborate and exchange knowledge effortlessly.
+              </p>
+              <Link
+                className="btn bg-california-500 hover:bg-california-800 text-white border-none "
+                to="/queries"
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="hero bg-[url('https://i.ibb.co.com/LznbjGfW/44420737-9019796.jpg')] bg-cover bg-center bg-no-repeat  min-h-screen">
+          <div className="w-full hero-content text-white text-center">
+            <div className="max-w-full px-10 lg:max-w-3xl">
+              <h2 className="text-2xl md:text-5xl font-bold">
+                Share and Refine Recommendations
+              </h2>
+              <p className="py-6">
+                Empower others with your expertise! Add, edit, or delete
+                recommendations and comments to keep the platform dynamic and
+                valuable for all users. Your voice makes a difference.
+              </p>
+              <Link
+                className="btn bg-california-500 hover:bg-california-800 text-white border-none "
+                to="/queries"
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
+        </div>
+      </SwiperSlide>
+    </Swiper>
   );
-};
+}
 
 export default Slider;
